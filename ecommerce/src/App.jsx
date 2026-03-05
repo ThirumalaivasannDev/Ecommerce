@@ -1,15 +1,16 @@
-import {HomePage} from './Pages/HomePage';
-import './App.css'
+import { HomePage } from './Pages/HomePage';
+import { Routes,Route } from 'react-router';
+import './App.css';
 
-function App() {
+export function App() {
   
 
   return (
-    <>
-      
-      <HomePage />
-    </>
+      <Routes>
+        <Route index element={< HomePage />} />
+        <Route path="checkout" element={<div>Test checkout</div>} />
+      </Routes>
   )
 }
 
-export default App
+
