@@ -2,7 +2,7 @@ import './Checkout.css';
 import './CheckoutHeader.css';
 
 
-export function Checkout() {
+export function Checkout({ cart }) {
   return (
     <>
       <title>Checkout</title>
@@ -31,25 +31,30 @@ export function Checkout() {
 
         <div className="checkout-grid">
           <div className="order-summary">
-            <div className="cart-item-container">
+
+            {cart.map((cartItem)=>
+            {
+              return(
+
+                <div key={cartItem.productId}className="cart-item-container">
               <div className="delivery-date">
                 Delivery date: Tuesday, June 21
               </div>
 
               <div className="cart-item-details-grid">
                 <img className="product-image"
-                  src="images/products/athletic-cotton-socks-6-pairs.jpg" />
+                  src={cartItem.product.image} />
 
                 <div className="cart-item-details">
                   <div className="product-name">
-                    Black and Gray Athletic Cotton Socks - 6 Pairs
+                    {cartItem.product.name}
                   </div>
                   <div className="product-price">
-                    $10.90
+                    ${(cartItem.product.priceCents/100).toFixed(2)}
                   </div>
                   <div className="product-quantity">
                     <span>
-                      Quantity: <span className="quantity-label">2</span>
+                      Quantity: <span className="quantity-label">{cartItem.quantity}</span>
                     </span>
                     <span className="update-quantity-link link-primary">
                       Update
@@ -106,6 +111,10 @@ export function Checkout() {
                 </div>
               </div>
             </div>
+
+              )
+            })}
+            
 
             <div className="cart-item-container">
               <div className="delivery-date">
