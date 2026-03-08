@@ -24,7 +24,7 @@ export function App() {
     <Routes>
       <Route path="/" element={< HomePage cart={cart} />} />
       <Route path="/checkout" element={< Checkout cart={cart} />} />
-      <Route path="/order" element={< Order /> } />
+      <Route path="/order" element={< Order  cart={ cart } /> } />
       <Route path="/tracking" element={ <Tracking /> } />
     </Routes>
   )
