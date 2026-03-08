@@ -1,33 +1,7 @@
-import './HomePage.css';
-import { Header } from '../components/Header';
-import axios from 'axios';
-import { useEffect,useState } from 'react';
-
-export function HomePage({cart})
+export function ProductsGrid({products})
 {
-  const[products,setProducts]=useState([]);
-
-  
-
-  useEffect(()=>
-  {
-    axios.get('/api/products').then((response)=>
-  {
-    setProducts(response.data);
-  });
-
-
-
-  },[]);
-  
-
   return(
-    <>
-        <title>Ecommerce Project</title>
-          
-          < Header cart={cart} />
-          <div className="home-page">
-            <div className="products-grid">
+    <div className="products-grid">
 
               {products.map((product)=>{
 
@@ -86,9 +60,5 @@ export function HomePage({cart})
 
               
             </div>
-          </div>
-
-    </>
-    
   );
 }
