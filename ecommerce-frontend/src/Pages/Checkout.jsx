@@ -46,11 +46,13 @@ export function Checkout({ cart }) {
         <div className="checkout-grid">
           <div className="order-summary">
 
-            { cart.map((cartItem)=>
+            {deliveryOptions.length>0 &&  cart.map((cartItem)=>
             {
-              const selectedDeliveryOption=deliveryOptions.find((deliveryOption)=>{
+              
+              const selectedDeliveryOption = deliveryOptions.find((deliveryOption)=>
+              {
                 return deliveryOption.id === cartItem.deliveryOptionId;
-              }); 
+              });
               return(
 
                 <div key={cartItem.productId}className="cart-item-container">
