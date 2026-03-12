@@ -10,9 +10,14 @@ export function Order({cart}) {
 
   useEffect(()=>
   {
-    axios.get('/api/orders?expand=products').then((response) => {
+
+    const fetchOrderData = async () =>
+    {
+      const response= await axios.get('/api/orders?expand=products');
       setOrders(response.data);
-    });
+    }
+    
+    fetchOrderData();
   },[]);
   return (
     <>
